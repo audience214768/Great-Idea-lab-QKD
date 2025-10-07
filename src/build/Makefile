@@ -117,6 +117,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named actors_lib
+
+# Build rule for target.
+actors_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 actors_lib
+.PHONY : actors_lib
+
+# fast build rule for target.
+actors_lib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/actors_lib.dir/build.make CMakeFiles/actors_lib.dir/build
+.PHONY : actors_lib/fast
+
+#=============================================================================
+# Target rules for targets named qubit_lib
+
+# Build rule for target.
+qubit_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 qubit_lib
+.PHONY : qubit_lib
+
+# fast build rule for target.
+qubit_lib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qubit_lib.dir/build.make CMakeFiles/qubit_lib.dir/build
+.PHONY : qubit_lib/fast
+
+#=============================================================================
 # Target rules for targets named qkd
 
 # Build rule for target.
@@ -128,6 +154,78 @@ qkd: cmake_check_build_system
 qkd/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qkd.dir/build.make CMakeFiles/qkd.dir/build
 .PHONY : qkd/fast
+
+actors/listener.o: actors/listener.cpp.o
+.PHONY : actors/listener.o
+
+# target to build an object file
+actors/listener.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/actors_lib.dir/build.make CMakeFiles/actors_lib.dir/actors/listener.cpp.o
+.PHONY : actors/listener.cpp.o
+
+actors/listener.i: actors/listener.cpp.i
+.PHONY : actors/listener.i
+
+# target to preprocess a source file
+actors/listener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/actors_lib.dir/build.make CMakeFiles/actors_lib.dir/actors/listener.cpp.i
+.PHONY : actors/listener.cpp.i
+
+actors/listener.s: actors/listener.cpp.s
+.PHONY : actors/listener.s
+
+# target to generate assembly for a file
+actors/listener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/actors_lib.dir/build.make CMakeFiles/actors_lib.dir/actors/listener.cpp.s
+.PHONY : actors/listener.cpp.s
+
+actors/receiver.o: actors/receiver.cpp.o
+.PHONY : actors/receiver.o
+
+# target to build an object file
+actors/receiver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/actors_lib.dir/build.make CMakeFiles/actors_lib.dir/actors/receiver.cpp.o
+.PHONY : actors/receiver.cpp.o
+
+actors/receiver.i: actors/receiver.cpp.i
+.PHONY : actors/receiver.i
+
+# target to preprocess a source file
+actors/receiver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/actors_lib.dir/build.make CMakeFiles/actors_lib.dir/actors/receiver.cpp.i
+.PHONY : actors/receiver.cpp.i
+
+actors/receiver.s: actors/receiver.cpp.s
+.PHONY : actors/receiver.s
+
+# target to generate assembly for a file
+actors/receiver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/actors_lib.dir/build.make CMakeFiles/actors_lib.dir/actors/receiver.cpp.s
+.PHONY : actors/receiver.cpp.s
+
+actors/sender.o: actors/sender.cpp.o
+.PHONY : actors/sender.o
+
+# target to build an object file
+actors/sender.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/actors_lib.dir/build.make CMakeFiles/actors_lib.dir/actors/sender.cpp.o
+.PHONY : actors/sender.cpp.o
+
+actors/sender.i: actors/sender.cpp.i
+.PHONY : actors/sender.i
+
+# target to preprocess a source file
+actors/sender.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/actors_lib.dir/build.make CMakeFiles/actors_lib.dir/actors/sender.cpp.i
+.PHONY : actors/sender.cpp.i
+
+actors/sender.s: actors/sender.cpp.s
+.PHONY : actors/sender.s
+
+# target to generate assembly for a file
+actors/sender.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/actors_lib.dir/build.make CMakeFiles/actors_lib.dir/actors/sender.cpp.s
+.PHONY : actors/sender.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -153,6 +251,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qkd.dir/build.make CMakeFiles/qkd.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+quantum_lib/qubit.o: quantum_lib/qubit.cpp.o
+.PHONY : quantum_lib/qubit.o
+
+# target to build an object file
+quantum_lib/qubit.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qubit_lib.dir/build.make CMakeFiles/qubit_lib.dir/quantum_lib/qubit.cpp.o
+.PHONY : quantum_lib/qubit.cpp.o
+
+quantum_lib/qubit.i: quantum_lib/qubit.cpp.i
+.PHONY : quantum_lib/qubit.i
+
+# target to preprocess a source file
+quantum_lib/qubit.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qubit_lib.dir/build.make CMakeFiles/qubit_lib.dir/quantum_lib/qubit.cpp.i
+.PHONY : quantum_lib/qubit.cpp.i
+
+quantum_lib/qubit.s: quantum_lib/qubit.cpp.s
+.PHONY : quantum_lib/qubit.s
+
+# target to generate assembly for a file
+quantum_lib/qubit.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qubit_lib.dir/build.make CMakeFiles/qubit_lib.dir/quantum_lib/qubit.cpp.s
+.PHONY : quantum_lib/qubit.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -161,10 +283,24 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... actors_lib"
 	@echo "... qkd"
+	@echo "... qubit_lib"
+	@echo "... actors/listener.o"
+	@echo "... actors/listener.i"
+	@echo "... actors/listener.s"
+	@echo "... actors/receiver.o"
+	@echo "... actors/receiver.i"
+	@echo "... actors/receiver.s"
+	@echo "... actors/sender.o"
+	@echo "... actors/sender.i"
+	@echo "... actors/sender.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... quantum_lib/qubit.o"
+	@echo "... quantum_lib/qubit.i"
+	@echo "... quantum_lib/qubit.s"
 .PHONY : help
 
 

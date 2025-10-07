@@ -92,6 +92,8 @@ qkd_EXTERNAL_OBJECTS =
 
 qkd: CMakeFiles/qkd.dir/main.cpp.o
 qkd: CMakeFiles/qkd.dir/build.make
+qkd: libactors_lib.a
+qkd: libqubit_lib.a
 qkd: CMakeFiles/qkd.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/aud_xiejiaye/great ideas/Great-Idea-lab-QKD/src/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable qkd"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/qkd.dir/link.txt --verbose=$(VERBOSE)
