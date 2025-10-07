@@ -5,3 +5,20 @@
 
 
 ## 代码结构
+GREAT-IDEA-LAB-QKD/
+├── src/
+│   ├── quantum_lib/        #量子相关功能
+│   │   ├── Qubit.h        
+│   │   └── Qubit.cpp      
+│   ├── actors/             #模拟密文发送过程
+│   │   ├── sender.h
+│   │   ├── sender.cpp
+│   │   ├── receiver.h
+│   │   ├── receiver.cpp
+│   │   ├── listener.h
+│   │   └── listener.cpp
+    ├── CMakeLists.txt     
+    ├── build              
+│   └── main.cpp           
+└── tests/                 
+    └── test_quantum_lib.cpp
