@@ -3,9 +3,10 @@
 
 
 ## 代码结构
+```
 GREAT-IDEA-LAB-QKD/
 ├── src/
-│   ├── quantum_lib/        #量子相关功能
+├── quantum_lib/        #量子相关功能
 │   │   ├── Qubit.h
 │   │   └── Qubit.cpp
 │   ├── actors/             #模拟密文发送过程的人员
@@ -20,7 +21,7 @@ GREAT-IDEA-LAB-QKD/
 │   └── main.cpp
 └── tests/          #目前未完成
     └── test_quantum_lib.cpp
-
+```
 ## 使用说明
 将终端目录切换到build文件夹，输入make即可编译和链接，此时会在build文件夹下生成 qkd 可执行文件，输入 ./qkd 即可执行
 
