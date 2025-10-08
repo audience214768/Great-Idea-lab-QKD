@@ -6,7 +6,7 @@
 
 class Qubit {
     private:
-        std::vector<std::complex<double>> state;
+        std::vector<std::complex<double>> state_;
         void normalize();
     public:
         Qubit(std::complex<double>, std::complex<double>);

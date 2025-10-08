@@ -9,7 +9,8 @@
  * @return a new qubit
  */
 Qubit::Qubit(std::complex<double> alpha, std::complex<double> beta) {
-
+   state_.push_back(alpha);
+   state_.push_back(beta);
 }
 
 /**
