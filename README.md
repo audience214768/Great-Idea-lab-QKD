@@ -6,19 +6,19 @@
 GREAT-IDEA-LAB-QKD/
 ├── src/
 │   ├── quantum_lib/        #量子相关功能
-│   │   ├── Qubit.h        
-│   │   └── Qubit.cpp      
+│   │   ├── Qubit.h
+│   │   └── Qubit.cpp
 │   ├── actors/             #模拟密文发送过程的人员
 │   │   ├── sender.h
-│   │   ├── sender.cpp
-│   │   ├── receiver.h
+│   │   ├── sender.cpp 
+│   │   ├── receiver.h 
 │   │   ├── receiver.cpp
 │   │   ├── listener.h
 │   │   └── listener.cpp
-│   ├── CMakeLists.txt     
-│   ├── build              
-│   └── main.cpp           
-└── tests/          #目前未完成       
+│   ├── CMakeLists.txt
+│   ├── build
+│   └── main.cpp
+└── tests/          #目前未完成
     └── test_quantum_lib.cpp
 
 ## 使用说明
