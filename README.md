@@ -1,7 +1,5 @@
 # 计算机伟大思想大作业—量子密钥
 组员：谢家烨 付长睿 任德厚
-## 目录
-
 
 
 ## 代码结构
@@ -20,5 +18,9 @@ GREAT-IDEA-LAB-QKD/
 │   ├── CMakeLists.txt     
 │   ├── build              
 │   └── main.cpp           
-└── tests/                 
+└── tests/          #目前未完成       
     └── test_quantum_lib.cpp
+
+## 使用说明
+将终端目录切换到build文件夹，输入make即可编译和链接，此时会在build文件夹下生成 qkd 可执行文件，输入 ./qkd 即可执行
+
