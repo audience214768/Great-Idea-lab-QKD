@@ -18,8 +18,8 @@ GREAT-IDEA-LAB-QKD/
 │   └── listener.cpp
 ├── CMakeLists.txt
 ├── build
-├── main.cpp
-└── tests/          #目前未完成
+├── main.cpp            #实现总的模拟过程和展示
+└── tests/              #测试
     └── test_quantum_lib.cpp
 ```
 ## 使用说明
