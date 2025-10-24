@@ -1,6 +1,7 @@
 //simulate sender
 #include "sender.h"
 #include<random>
+#include<iostream>
 
 
 Sender::Sender(int key_length):key_length_(key_length) {
@@ -13,7 +14,21 @@ Sender::Sender(int key_length):key_length_(key_length) {
  * @return the key
  */
 std::vector<Qubit> Sender::GenerateBits() {
-
+    std::vector<Qubit> generated_qubit;
+    std::cout << "please input bases" << std::endl;
+    for(int i = 0;i < key_length_; i++){
+        char base_;
+        std::cin >> base_;
+        bases_.push_back(base_);  
+    }
+    for(int i = 0;i < key_length_; i++){
+        char bit_;
+        std::cin >> bit_;
+        bits_.push_back(bit_);  
+        
+        generated_qubit.push_back(QuantumUtils::encode_bit(bits_[i], bases_[i]));
+    }
+    return generated_qubit;
 }
 
 std::vector<int> &Sender::GetBits() const {
