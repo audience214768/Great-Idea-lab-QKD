@@ -11,7 +11,7 @@ class Qubit {
     public:
         Qubit(std::complex<double>, std::complex<double>);
         int measure();
-        void SetState(std::vector<std::complex<double>> &);
+        void SetState(std::complex<double>, std::complex<double>);
         std::vector<std::complex<double>> GetState();
 };
 

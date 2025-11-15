@@ -77,7 +77,10 @@ void run_simulation(int key_length, bool eavesdrop, double check_sample_ratio = 
         }
     }
     std::cout << "  Bases match at " << matching_indices.size() << " positions (approx. 50%)." << std::endl;
-
+    for(auto key : matching_indices) {
+      std::cout << key << " ";
+    }
+    std::cout << std::endl;
     if (matching_indices.empty()) {
         std::cout << "\nProtocol failed: No matching bases found." << std::endl;
         return;

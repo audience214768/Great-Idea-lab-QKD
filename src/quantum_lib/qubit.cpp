@@ -59,12 +59,9 @@ int Qubit::measure() {
  * @brief set the state of the qubit
  * @param new_state the state you want the qubit to be
  */
-void Qubit::SetState(std::vector<std::complex<double>> &new_state) {
-	  if(new_state.size() != 2){
-		    return;
-	  }
-    state_[0] = new_state[0];
-	  state_[1] = new_state[1];
+void Qubit::SetState(std::complex<double> alpha, std::complex<double> beta) {
+    state_[0] = alpha;
+	  state_[1] = beta;
 	  normalize();
 }
 
@@ -89,7 +86,7 @@ namespace QuantumUtils {
 		    }
 		    else{
 			      std::complex<double> c = 1.0 / std::sqrt(2.0);
-			      return bit == 0 ? Qubit(c,c) : Qubit(c,-c);
+			      return bit == 0 ? Qubit(c,c) : Qubit(-c,c);
 		    }
     }
     /**
@@ -109,10 +106,9 @@ namespace QuantumUtils {
             std::vector<std::complex<double>> state = qubit.GetState();
 				    std::complex<double> alpha = state[0];
 				    std::complex<double> beta = state[1];
-				    std::complex<double> new_alpha = alpha + beta / std::sqrt(2.0);
-				    std::complex<double> new_beta = alpha - beta / std::sqrt(2.0);
-				    state[0] = new_alpha;
-				    state[1] = new_beta;
+				    std::complex<double> new_alpha = (alpha + beta) / std::sqrt(2.0);
+				    std::complex<double> new_beta = (beta - alpha) / std::sqrt(2.0);
+				    qubit.SetState(new_alpha, new_beta);
 				    return qubit.measure(); 
         }
     }

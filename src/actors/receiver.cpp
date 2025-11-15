@@ -26,7 +26,6 @@ void Receiver::measure_qubits(std::vector<Qubit> &received_qubits) {
         }
         bases_.push_back(base);
         measured_bits_.push_back(QuantumUtils::measure_in_basis(received_qubits[i], bases_[i]));
-        //std::cout << measured_bits_[i];
     }
     //std::cout << std::endl;
 }
