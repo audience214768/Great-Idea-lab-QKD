@@ -2,7 +2,7 @@
 #define SENDER
 
 #include <vector>
-#include "qubit.h"
+#include "quantum_lib/qubit.h"
 
 class Sender {
     private:
@@ -12,10 +12,9 @@ class Sender {
 
     public:
         Sender(int);
-        ~Sender();
         std::vector<Qubit> GenerateBits();
-        std::vector<int> &GetBits() const;
-        std::vector<char> &GetBases() const;
+        const std::vector<int> &GetBits() const;
+        const std::vector<char> &GetBases() const;
         
 };
 

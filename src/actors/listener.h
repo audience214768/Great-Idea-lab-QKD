@@ -2,7 +2,7 @@
 #define LISTENER
 
 #include <vector>
-#include "qubit.h"
+#include "quantum_lib/qubit.h"
 
 class Listener{
     private:
@@ -12,8 +12,8 @@ class Listener{
     public:
     Listener(int);
     std::vector<Qubit> eavesdrop(std::vector<Qubit> &);
-    std::vector<char> &GetBases() const;
-    std::vector<int> &GetInterceptedBits() const;
+    const std::vector<char> &GetBases() const;
+    const std::vector<int> &GetInterceptedBits() const;
 };
 
 #endif

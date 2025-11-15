@@ -10,9 +10,9 @@
 #include<memory>
 
 
-#include "listener.h"
-#include "receiver.h"
-#include "sender.h"
+#include "actors/listener.h"
+#include "actors/receiver.h"
+#include "actors/sender.h"
 
 
 /**
@@ -44,7 +44,7 @@ void run_simulation(int key_length, bool eavesdrop, double check_sample_ratio = 
 
     // 1.initialize the role
     Sender sender(key_length);
-    Listener receiver(key_length);
+    Receiver receiver(key_length);
     std::unique_ptr<Listener> listener = nullptr; 
     if (eavesdrop) {
         listener = std::make_unique<Listener>(key_length);
@@ -52,9 +52,9 @@ void run_simulation(int key_length, bool eavesdrop, double check_sample_ratio = 
 
     // 2.sender send the key
     std::cout << "Step 1: Alice generates and sends qubits..." << std::endl;
-    std::vector<Qubit> qubits = sender.generate_qubits();
-    print_vector("  Alice's original bits:  ", sender.getBits());
-    print_vector("  Alice's original bases: ", sender.getBases());
+    std::vector<Qubit> qubits = sender.GenerateBits();
+    print_vector("  Alice's original bits:  ", sender.GetBits());
+    print_vector("  Alice's original bases: ", sender.GetBases());
 
     // 3.listener intercept(if there is a listener)
     if (listener) {
@@ -65,14 +65,14 @@ void run_simulation(int key_length, bool eavesdrop, double check_sample_ratio = 
     // 4.receiver receive the key
     std::cout << "\nStep " << (eavesdrop ? "3" : "2") << ": Bob receives and measures qubits..." << std::endl;
     receiver.measure_qubits(qubits);
-    print_vector("  Bob's measured bases:   ", receiver.getBases());
-    print_vector("  Bob's measured results: ", receiver.getMeasuredBits());
+    print_vector("  Bob's measured bases:   ", receiver.GetBases());
+    print_vector("  Bob's measured results: ", receiver.GetMeasuredBits());
 
     // 5. check the bases
     std::cout << "\nStep " << (eavesdrop ? "4" : "3") << ": Alice and Bob compare bases..." << std::endl;
     std::vector<int> matching_indices;
     for (int i = 0; i < key_length; ++i) {
-        if (sender.getBases()[i] == sender.getBases()[i]) {
+        if (sender.GetBases()[i] == receiver.GetBases()[i]) {
             matching_indices.push_back(i);
         }
     }
@@ -89,8 +89,8 @@ void run_simulation(int key_length, bool eavesdrop, double check_sample_ratio = 
     alice_key.reserve(matching_indices.size());
     bob_key.reserve(matching_indices.size());
     for (int index : matching_indices) {
-        alice_key.push_back(sender.getBits()[index]);
-        bob_key.push_back(receiver.getMeasuredBits()[index]);
+        alice_key.push_back(sender.GetBits()[index]);
+        bob_key.push_back(receiver.GetMeasuredBits()[index]);
     }
     print_vector("  Alice's sifted key: ", alice_key);
     print_vector("  Bob's sifted key:   ", bob_key);
@@ -147,19 +147,21 @@ void run_simulation(int key_length, bool eavesdrop, double check_sample_ratio = 
 // 程序入口 (Main Entry Point)
 // -----------------------------------------------------------------------------
 int main() {
-    const int KEY_SIZE = 50; // 设定一个合理的密钥长度用于演示
+    std::cout << "choose ythe key length : ";
+    int key_length;
+    std::cin >> key_length;
 
     // --- 场景一：安全信道，无窃听 ---
     std::cout << "SCENARIO 1: Secure Channel (No Eavesdropper)" << std::endl;
     std::cout << "===========================================" << std::endl;
-    run_simulation(KEY_SIZE, false);
+    run_simulation(key_length, false);
 
     std::cout << "\n\n";
 
     // --- 场景二：不安全信道，有窃听 ---
     std::cout << "SCENARIO 2: Insecure Channel (With Eavesdropper)" << std::endl;
     std::cout << "==============================================" << std::endl;
-    run_simulation(KEY_SIZE, true);
+    run_simulation(key_length, true);
 
     return 0;
 }

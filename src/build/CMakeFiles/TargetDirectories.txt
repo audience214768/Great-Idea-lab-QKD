@@ -1,5 +1,0 @@
-/home/aud_xiejiaye/great ideas/Great-Idea-lab-QKD/src/build/CMakeFiles/actors_lib.dir
-/home/aud_xiejiaye/great ideas/Great-Idea-lab-QKD/src/build/CMakeFiles/qubit_lib.dir
-/home/aud_xiejiaye/great ideas/Great-Idea-lab-QKD/src/build/CMakeFiles/qkd.dir
-/home/aud_xiejiaye/great ideas/Great-Idea-lab-QKD/src/build/CMakeFiles/edit_cache.dir
-/home/aud_xiejiaye/great ideas/Great-Idea-lab-QKD/src/build/CMakeFiles/rebuild_cache.dir

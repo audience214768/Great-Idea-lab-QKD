@@ -2,7 +2,7 @@
 #define RECEIVER
 
 #include <vector>
-#include "qubit.h"
+#include "quantum_lib/qubit.h"
 
 class Receiver {
     private:
@@ -12,8 +12,8 @@ class Receiver {
     public:
         Receiver(int);
         void measure_qubits(std::vector<Qubit> &);
-        std::vector<char> &GetBases() const;
-        std::Vector<int> &GetMeasuredBits() const
+        const std::vector<char> &GetBases() const;
+        const std::vector<int> &GetMeasuredBits() const;
 };
 
 #endif

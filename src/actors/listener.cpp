@@ -1,19 +1,18 @@
 //simulate the listener,where define the class Listener
 #include "listener.h"
-#include<iostream>
+#include <iostream>
 
 Listener::Listener(int key_length):key_length_(key_length) {
-    bases_.reverse(key_length_);
-    intercepted_bits_.reverse(key_length_);
+    bases_.reserve(key_length_);
+    intercepted_bits_.reserve(key_length_);
 }
 
 /**
- * @brief measure the qubits and resend the qubits
+ * @brief measure the qubits and resend the qubits for length key_length_
  * @param original_qubits the intercepted qubits
  * @return the qubits to resend
  */
 std::vector<Qubit> Listener::eavesdrop(std::vector<Qubit> &original_qubits) {
-    //manipulate the original_qubits
     std::cout << "please input bases" << std::endl;
     for(int i = 0;i < key_length_; i++){
         char base_;

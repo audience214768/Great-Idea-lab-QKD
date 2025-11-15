@@ -1,0 +1,2 @@
+/usr/bin/ar qc libactors_lib.a CMakeFiles/actors_lib.dir/src/actors/sender.cpp.o CMakeFiles/actors_lib.dir/src/actors/receiver.cpp.o CMakeFiles/actors_lib.dir/src/actors/listener.cpp.o
+/usr/bin/ranlib libactors_lib.a

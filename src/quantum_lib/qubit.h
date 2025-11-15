@@ -12,8 +12,11 @@ class Qubit {
         Qubit(std::complex<double>, std::complex<double>);
         int measure();
         void SetState(std::vector<std::complex<double>> &);
-    
-
+        std::vector<std::complex<double>> GetState();
 };
 
+namespace QuantumUtils {
+    Qubit encode_bit(int bit, char basis);
+    int measure_in_basis(Qubit &qubit, char basis);
+}
 #endif

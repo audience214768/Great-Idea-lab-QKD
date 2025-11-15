@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/qkd.dir/main.cpp.o -o qkd  libactors_lib.a libqubit_lib.a 
